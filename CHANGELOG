@@ -1,0 +1,6 @@
+# Changelog
+
+## 21.02.2025
+
+- initial jekyll setup (locally with docker)
+- github automation to publish the blog to github pages (christophdb.github.io)
