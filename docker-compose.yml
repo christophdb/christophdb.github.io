@@ -2,7 +2,11 @@
 services:
   jekyll:
     build: .
+    container_name: jekyll_dev
     volumes:
       - .:/srv/jekyll
+      - ./vendor/bundle/:/usr/local/bundle
+      - ./gems/:/root/gems
     ports:
       - "4000:4000"
+    command: sh -c "bundle && jekyll serve --force_polling --drafts --host 0.0.0.0"
