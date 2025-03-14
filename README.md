@@ -17,6 +17,7 @@ go 1.24.1
 # ToDos
 
 [ ] texte einstellen / überführen
+[ ] github page muss von als source "github action" haben. wichtig für die readme.md
 [ ] richtige readme.md schreiben
 [ ] auf richtige domain überführen
 [ ] seo optimieren
