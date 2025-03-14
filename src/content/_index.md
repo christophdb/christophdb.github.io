@@ -1,9 +1,16 @@
 ---
-title: You don't start out writing good stuff
-description: The hallway smelt of boiled cabbage and old rag mats.
+title: Explore, Hack, Optimize, Repeat
+description: Automation, process optimization and Linux.
 ---
 
-The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloured poster, too large for indoor display, had been tacked to the wall. It depicted simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features. Winston made for the stairs. It was no use trying the lift. 
+Hi, I’m Christoph Dyllick-Brenzinger — father, nerd, gamer, and speaker.
+
+I thrive on learning, hacking, and optimizing the world around me.
+This blog is my playground, where I document discoveries in automation,
+process optimization, and Linux. Dive in—you might just find something that
+sparks your curiosity or solves your next big challenge.
+
+**Find what you’re looking for** — or discover something unexpected:
 
 <div id="search"></div>
 
