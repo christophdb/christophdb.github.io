@@ -64,6 +64,12 @@ p > code {
     text-align: right;
   }
 
+.page .content p {
+  max-width: 800px;
+}
+
+/* tables */
+
   table {
     max-width: 800px;
     border-collapse: collapse;
