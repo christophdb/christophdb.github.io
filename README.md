@@ -1,3 +1,39 @@
-# christophdb.github.io
+1. Clone this git repo...
+2. docker run -v ${PWD}:/hugo hugo new site ../src
+3. preview.sh
 
-Jekyll Blog on Github pages.
+# used versions
+
+pagefind v1.3.0
+hugo 0.145
+go 1.24.1
+
+# Anpassungen für current hugo version:
+
+- Replace `.Site.IsServer` with `hugo.IsServer`
+- Replace `paginate = 3` with `pagerSize = 3`
+- Minor CSS changes
+
+# ToDos
+
+[ ] texte einstellen / überführen
+[ ] richtige readme.md schreiben
+[ ] auf richtige domain überführen
+[ ] seo optimieren
+[x] add next/previous in den blog-posts
+[x] add search function
+[x] add Tags am Ende eines Posts
+[x] x min read time
+[x] local fonts instead of google fonts
+[x] icons am ende der seite vereinheitlichen
+[ ] 404 page
+[ ] youtube videos einbetten
+[optional] Vorschau anpassen wie hier: https://demo.stack.jimmycai.com/ mit tags und kleinen icons bei date und read time...
+
+
+## Midnight:
+
+- Group of robots coding, purple background, cartoon style, digital illustration --ar 2:1
+- two robots talking with each other, purple background, cartoon style, digital illustration --ar 2:1 
+- Cute robot character, purple background, cartoon style, digital illustration --ar 2:1 
+1000:500px

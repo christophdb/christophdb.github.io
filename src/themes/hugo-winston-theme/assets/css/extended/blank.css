@@ -1,0 +1,106 @@
+.custom {
+    background: red;
+}
+
+.three-dots-hr {
+    border: none;
+    padding: 0;
+    margin: 40px 0; /* Adjust spacing */
+}
+  
+.three-dots-hr::before {
+    content: "\2022 \2022 \2022"; /* Unicode for bullet points */
+    display: block;
+    text-align: center;
+    letter-spacing: 24px;
+    color: var(--baseOffsetColor);
+    max-width: 800px;
+}
+
+.view-more {
+    border: 2px solid var(--highlight-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#search {
+    max-width: 800px;
+}
+
+.post-tags {
+  margin-top: 2rem;
+}
+.post-tags > a {
+  font-size: 15px;
+  background-color: var(--highlight-color);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+p > code {
+    font-size: 15px;
+    background-color: #eee;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.next-prev-blog-links {
+    margin-top: 3rem;
+  }
+
+  .next-prev-blog-links .container {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px
+  }
+  
+  .prev-post {
+    text-align: left;
+  }
+  
+  .next-post {
+    text-align: right;
+  }
+
+  table {
+    max-width: 800px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-indent: 0;
+  }
+
+  thead th {
+    --table-font-weight: 600;
+    --table-border-width: .1875rem;
+    --table-background-color: var(--highlight-color);
+    --table-color: #fff;
+    --table-font-family: 'Poppins';
+    --table-font-size: 18px;
+  }
+
+  tbody td {
+    --table-font-weight: 400;
+    --table-border-width: .0625rem;
+    --table-background-color: #fff;
+    --table-color: #373c44;
+    --table-font-family: inherit;
+    --table-font-size: 16px;
+  }
+
+  td, th {
+    padding: 14px 20px;
+    border-bottom: var(--table-border-width) solid var(--highlight-color);
+    background-color: var(--table-background-color);
+    color: var(--table-color);
+    font-weight: var(--table-font-weight);
+    text-align: left;
+    text-align: start;
+    font-family: var(--table-font-family);
+    font-size: var(--table-font-size);
+  }
+
+  table tbody tr:nth-child(odd) td, table tbody tr:nth-child(odd) th {
+    background-color: #f9fafa;
+  }

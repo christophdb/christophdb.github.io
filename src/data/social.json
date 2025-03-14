@@ -1,0 +1,29 @@
+{
+  "links": [
+    {
+      "name": "christoph@dyllick-brenzinger.com",
+      "url": "mailto:christoph@dyllick-brenzinger.com",
+      "image": "images/social/email.svg"
+    },
+    {
+      "name": "SeaTable.com",
+      "url": "https://seatable.com",
+      "image": "images/social/link.svg"
+    },
+    {
+      "name": "github",
+      "url": "https://github.com/christophdb/",
+      "image": "images/social/github.svg"
+    },
+    {
+      "name": "linkedin",
+      "url": "https://www.linkedin.com",
+      "image": "images/social/linkedin.svg"
+    },
+    {
+      "name": "Feed",
+      "url": "/index.xml",
+      "image": "images/social/feed.svg"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{{ define "body_classes" }}page-blog-single{{ end }}
+
+{{ define "main" }}
+
+  <!-- exclude drafts or with param nosearch: true -->
+  {{ if or .Draft .Params.nosearch }}
+  <div class="blog">
+  {{ else }}
+  <div class="blog" data-pagefind-body>
+  {{ end }}
+
+    {{ if .Site.Params.showAuthorOnPosts }}
+      {{ partial "author.html" . }}
+    {{ end }}
+    <div class="intro">
+      <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+      {{ if .Params.image }}
+      <img alt="{{.Params.imageAltAttribute | default "Article hero image"}}" src="{{ .Params.image | relURL }}" />
+      {{ end }}
+    </div>
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <hr/>
+ 
+  {{ if .Params.tags }}
+    <div class="post-tags">Tags: 
+      {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+  
+  <div class="next-prev-blog-links">
+    Do you want to read more blog posts?
+    <div class="container">
+      <div class="prev-post">
+        {{ if .PrevInSection }}
+          <a href="{{ .PrevInSection.Permalink }}">« {{ .PrevInSection.Title }}</a>
+        {{ end }}
+      </div>
+      <div class="next-post">
+        {{ if .NextInSection }}
+          <a href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} »</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "body_classes" }}page-default-list{{ end }}
+
+{{ define "main" }}
+  <div class="intro">
+    <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+    {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ end }}
+  </div>
+  {{ .Content }}
+  
+  {{ if eq .Kind "taxonomy" }}
+    <!-- This is the main tags overview page -->
+    {{ $sortedTags := sort .Site.Taxonomies.tags "Count" "desc" }}
+    {{ range $sortedTags }}
+      <div class="summary">
+        <h2 class="summary-title">
+          <a href="{{ .Page.RelPermalink }}">
+            {{ .Page.Title }} ({{ .Count }})
+          </a>
+        </h2>
+        {{ with .Page.Description }}
+          <p class="summary-description">{{ . }}</p>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  {{ else }}
+    <!-- This is an individual tag page -->
+    {{ range.Pages }}
+      <div class="summary">
+        <h2 class="summary-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="summary-description">{{ .Params.description }}</p>
+      </div>
+    {{ end }}
+  {{ end }}
+
+{{ end }}

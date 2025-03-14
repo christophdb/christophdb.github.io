@@ -1,24 +1,49 @@
+# Use the latest debian base image
 FROM debian:bookworm-slim
 
-RUN apt-get update && apt-get install -y \
-    ruby \
-    ruby-bundler \
-    ruby-dev \
-    nano \
-    curl \
-    build-essential \
-    zlib1g-dev \
-  && rm -rf /var/lib/apt/lists/*
+# Set Versions
+ARG GOLANG_VERSION=1.24.1
+ARG HUGO_VERSION=0.145.0
 
-RUN echo '# Install Ruby Gems to ~/gems' >> /root/.bashrc && \
-    echo 'export GEM_HOME="$HOME/gems"' >> /root/.bashrc && \
-    echo 'export PATH="$HOME/gems/bin:$PATH"' >> /root/.bashrc
+# Update and install necessary packages
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    wget \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV GEM_HOME=/root/gems
-ENV PATH=/root/gems/bin:$PATH
+# Install Go
+RUN wget https://go.dev/dl/go$GOLANG_VERSION.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz && \
+    rm go$GOLANG_VERSION.linux-amd64.tar.gz
 
-WORKDIR /srv/jekyll
+# Set up Go environment variables
+ENV GOROOT=/usr/local/go
+ENV GOPATH=/go
+ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+ENV HUGO_BIND="0.0.0.0" \
+    HUGO_ENV="DEV" \
+    HUGO_EDITION="extended"
 
-RUN ruby --version && bundle --version && gem install bundler jekyll
+# Download Hugo
+RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz -O hugo.tar.gz && \
+    tar -C /usr/local/bin -xzf hugo.tar.gz && \
+    rm hugo.tar.gz
 
-CMD ["irb"]
+# Clean up
+RUN apt-get remove -y wget && apt-get autoremove -y && apt-get clean
+
+# Set hugo in the path
+RUN export PATH=$PATH:/usr/local/go/bin
+
+EXPOSE 1313
+
+# Set the working directory for Hugo projects
+WORKDIR /hugo/src
+
+#ENTRYPOINT 
+ENTRYPOINT ["hugo"]
+
+# Command to run when the container starts
+#CMD ["hugo", "server", "-D", "-E", "--bind=0.0.0.0"]

@@ -1,0 +1,12 @@
+<div class="summary">
+  {{ if .Site.Params.showAuthorOnPosts }}
+    {{ partial "author.html" . }}
+  {{ else }}
+    <span class="summary-date">{{ dateFormat "Jan 2, 2006" .Date }}</span> 
+    {{ $readTime := .ReadingTime }}
+    <span class="summary-readtime"> &nbsp; &nbsp; {{ $readTime }} min read</span>
+  {{ end }}
+  <h2 class="summary-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  
+  <p class="summary-description">{{ .Params.description }}</p>
+</div>

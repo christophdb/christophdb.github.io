@@ -1,8 +1,2 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-.bundle/
-vendor
-gems
-.DS_Store
+/src/public
+/src/.hugo_build.lock
