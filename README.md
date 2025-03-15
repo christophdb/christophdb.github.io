@@ -16,10 +16,10 @@ go 1.24.1
 
 # ToDos
 
-[ ] texte einstellen / überführen
+[x] texte einstellen / überführen
 [ ] github page muss von als source "github action" haben. wichtig für die readme.md
 [ ] richtige readme.md schreiben
-[ ] auf richtige domain überführen
+[x] auf richtige domain überführen
 [ ] seo optimieren
 [x] add next/previous in den blog-posts
 [x] add search function
@@ -27,7 +27,7 @@ go 1.24.1
 [x] x min read time
 [x] local fonts instead of google fonts
 [x] icons am ende der seite vereinheitlichen
-[ ] 404 page
+[x] 404 page
 [ ] youtube videos einbetten
 [optional] Vorschau anpassen wie hier: https://demo.stack.jimmycai.com/ mit tags und kleinen icons bei date und read time...
 
