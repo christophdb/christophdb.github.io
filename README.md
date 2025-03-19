@@ -28,6 +28,7 @@ go 1.24.1
 [x] local fonts instead of google fonts
 [x] icons am ende der seite vereinheitlichen
 [x] 404 page
+[ ] tabellendarstellung für mobile view
 [ ] youtube videos einbetten
 [optional] Vorschau anpassen wie hier: https://demo.stack.jimmycai.com/ mit tags und kleinen icons bei date und read time...
 
