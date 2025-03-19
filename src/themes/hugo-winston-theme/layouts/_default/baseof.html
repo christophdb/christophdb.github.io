@@ -48,6 +48,10 @@
     </script>
   {{ end }}
 
+  {{ if .Site.Params.googleSearchConsoleTag }}
+    <meta name="google-site-verification" content="{{ .Site.Params.googleSearchConsoleTag }}" />
+  {{ end }}
+
   {{ partial "extend-head.html" . }}
 </head>
 
