@@ -7,7 +7,7 @@ if [[ "$1" == "-stop" ]]; then
   exit 0
 fi
 
-rm -r src/public/*
+sudo rm -r src/public/*
 sudo docker build -t hugo .
 sudo docker run --rm --name hugo -p 1313:1313 -v ${PWD}:/hugo hugo server -D --bind=0.0.0.0
 ./pagefind --site "src/public" --verbose

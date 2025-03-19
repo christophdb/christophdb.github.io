@@ -69,3 +69,8 @@ pygmentsUseClasses = true
     identifier = "tags"
     weight = 4
     url = "/tags/"
+  [[menu.main]]
+    name = "Contact"
+    identifier = "contact"
+    weight = 5
+    url = "/contact/"
