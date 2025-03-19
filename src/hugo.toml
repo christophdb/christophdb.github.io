@@ -39,6 +39,8 @@ pygmentsUseClasses = true
 
   # Custom stuff added by me...
   enableSearch = true
+  matomoSiteId = "7"
+  matomoProviderUrl = "https://wp-stats.seatable.io/"
 
 # markdown config settings https://gohugo.io/getting-started/configuration-markup/#goldmark
 [markup]
