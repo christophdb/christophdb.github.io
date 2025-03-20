@@ -42,7 +42,6 @@ pygmentsUseClasses = true
   matomoSiteId = "7"
   matomoProviderUrl = "https://wp-stats.seatable.io/"
   googleSearchConsoleVerificationTag = "iGenigAZSvwGpbLaeutS8SnDlLfYNsxtgZoDXMUNhFg"
-  enableRobotsTXT = true
 
 # markdown config settings https://gohugo.io/getting-started/configuration-markup/#goldmark
 [markup]
