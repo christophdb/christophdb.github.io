@@ -19,6 +19,8 @@ go 1.24.1
 [x] texte einstellen / überführen
 [ ] github page muss von als source "github action" haben. wichtig für die readme.md
 [ ] richtige readme.md schreiben
+[ ] SEO optimization: title strangely doubled?
+    https://seositecheckup.com/seo-audit/christophdb.github.io
 [x] auf richtige domain überführen
 [ ] seo optimieren
 [x] add next/previous in den blog-posts
