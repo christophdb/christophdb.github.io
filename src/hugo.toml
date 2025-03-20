@@ -8,6 +8,9 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClasses = true
 
+# custom stuff added by me...
+enableRobotsTXT = true
+
 [module]
   [module.hugoVersion]
     extended = true
