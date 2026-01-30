@@ -1,10 +1,30 @@
 ---
-title: 'About'
-url: "/about/"
-image: images/about.jpg
+title: "About"
+date: "2025-03-30"
+url: "/de/ueber-mich"
+translationKey: "about"
+
+showDate: false
+showDateOnlyInArticle: false
+showDateUpdated: false
+showHeadingAnchors: false
+showPagination: false
+showReadingTime: false
+showTableOfContents: true
+showTaxonomies: false 
+showWordCount: false
+showSummary: false
+sharingLinks: false
+showEdit: false
+showViews: false
+showLikes: false
+showAuthor: true
+layoutBackgroundHeaderSpace: false
+showRelatedContent: false
+
 ---
 
-## Christoph Dyllick-Brenzinger
+DEUTSCH
 
 I’m a Mannheim Uni economics grad who started as a consultant at Detecon (Deutsche Telekom’s tech arm). Promoted twice in four years, I became their youngest-ever Senior Consultant. Working with major corporations sparked my passion for process automation and IT—I thrive at the intersection of developers and management.
 
@@ -15,3 +35,5 @@ This blog is my space to share insights, hacks, and discoveries in automation, o
 ## Sharing knowledge
 
 I’m passionate about sharing what I’ve learned and inspiring others. That’s why I’m excited to step into the role of a speaker — whether at conferences, meetups, or workshops. Let’s connect, collaborate, and make an impact together!
+
+<a target="_blank" href="https://mentorcruise.com/mentor/nunocorao/"> <img class="nozoom" src="https://cdn.mentorcruise.com/img/banner/sky-sm.svg" width="240" alt="MentorCruise"> </a>

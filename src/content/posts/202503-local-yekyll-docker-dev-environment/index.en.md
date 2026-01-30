@@ -1,15 +1,17 @@
 ---
-title:  "Setting Up a Local Development Environment for Jekyll with Docker"
-date:   2025-03-12
+title: "Setting Up a Local Development Environment for Jekyll with Docker"
+date: "2025-03-12"
 #description: "..."
-image: images/robots3.jpg
-imageAltAttribute: Local Jekyll Development Setup
+summary: ""
+categories: [Tutorial]
 tags: 
   - Development
   - Docker
   - Linux
   - Jekyll
+draft: false
 permalink: '/2025/03/12/local-development-environment-for-jekyll-with-docker'
+
 ---
 
 ## Why?

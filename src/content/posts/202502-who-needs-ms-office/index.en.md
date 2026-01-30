@@ -1,9 +1,8 @@
 ---
-title:  "Who the F*** Needs Microsoft Office in Linux?"
-date:   2025-02-22
+title: "Who the F*** Needs Microsoft Office in Linux?"
+date: "2025-02-22"
 #description: ...
-image: images/robots1.jpg
-imageAltAttribute: Microsoft Office Alternative for Linux
+category: [Tutorial]
 tags: 
   - Linux
   - Microsoft Office
@@ -11,7 +10,7 @@ tags:
   - SeaTable
   - mkdocs
   - Marp
-permalink: '/2025/02/21/who-needs-microsoft-office-in-linux'
+draft: false
 ---
 
 For many, Microsoft Office has long been considered an insurmountable obstacle when switching to Linux. However, this perception is rapidly changing as Linux offers excellent alternatives for nearly every software need, especially for developers. While Microsoft Office remains the de facto standard for texts, spreadsheets, and presentations, the landscape is evolving.

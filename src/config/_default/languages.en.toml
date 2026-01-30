@@ -1,0 +1,31 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Explore, Hack, Optimize, Repeat"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2006-01-02"
+  logo = "img/logo_inverted@0.25x.png"
+  secondaryLogo = "img/img/logo@0.25x.png"
+  description = "My awesome website"
+  # copyright = "Copy, _right?_ :thinking_face:"
+
+[params.author]
+   name = "Christoph Dyllick-Brenzinger"
+   email = "christoph@dyllick-brenzinger.com"
+   image = "img/author.png"
+   imageQuality = 96
+   headline = "Father, nerd, gamer, and speaker."
+   bio = "Chef @ SeaTable"
+   links = [
+     { email = "mailto:christoph.dyllick-brenzinger.com" },
+     { link = "https://seatable.com/" },
+     { github = "https://github.com/christophdb" },
+#     { gitlab = "https://gitlab.com/username" },
+     { linkedin = "https://linkedin.com/in/christoph-dyllick-brenzinger" },
+#     { mastodon = "https://mastodon.instance/@username" },
+   ]

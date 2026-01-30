@@ -3,6 +3,8 @@ title: Explore, Hack, Optimize, Repeat
 description: Automation, process optimization and Linux.
 ---
 
+<!--
+
 Hi, I’m Christoph Dyllick-Brenzinger — father, nerd, gamer, and speaker.
 
 I thrive on learning, hacking, and optimizing the world around me.
@@ -15,3 +17,4 @@ sparks your curiosity or solves your next big challenge.
 <div id="search"></div>
 
 <hr class="three-dots-hr">
+-->

@@ -14,7 +14,7 @@ permalink: '/2025/02/21/ansible-workstation-setup'
 
 In the world of IT, efficiency is key. Ansible, a powerful automation tool, allows us to create reproducible workflows using simple YAML files. This article focuses on how to use Ansible for the automatic installation and configuration of a Linux system.
 
-## The Core Idea: If You Do It More Than Once, Automate It
+## If You Do It More Than Once, Automate It
 
 Why should you automate your PC installation? Beyond the fun and challenge of doing it with Ansible, it's about the fundamental idea that any task you perform more than once should be automated, documented, and reproducible.
 
