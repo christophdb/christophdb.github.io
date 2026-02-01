@@ -67,7 +67,7 @@ Dies bedeutet dann auch, dass die Reputation dieser IP-Adresse ab sofort eine de
 
 Dieser Artikel fängt also damit an spannend zu werden, wenn man bereits E-Mails verschicken und empfangen kann.
 
-## Kontrolle
+## Kontrolle des technischen Setups
 
 ### Redsift
 
@@ -85,190 +85,93 @@ Eine weitere gute Möglichkeit, um die Qualität der E-Mails von einer KI bewert
 
 ### Reputation bei Microsoft und Google
 
-Microsoft und Google bieten ...
+Schätzen gehen davon aus, dass Microsoft und Google zusammen über 60% aller Business E-Mailkonten weltweit ausmachen. Somit ist es extrem wichtig, sich auf diese beiden Anbieter zu konzentrieren. Beide bieten jeweils einen eigenen Dienst an, bei dem man seine reputation überwachen kann. Eine Anmeldung und regelmäßiger Check bei diesen beiden Diensten ist somit sehr zu empfehlen:
 
+- [Google Postmaster Tools](https://gmail.com/postmaster/)
+- [Smart Network Data Service von Microsoft](https://sendersupport.olc.protection.outlook.com/snds/)
 
+### DMARC Report Analyzer
 
-###########
+Eine weitere Möglichkeit frühzeitig auf Probleme mit DMARC, DKIM und SPF hingewiesen zu werden, sind die RUA- (Reporting Under Aggregate) und RUF- (Reporting Under Forensic) Berichte. Man gibt in seinem DMARC DNS Eintrag eine oder mehrere E-Mailadressen an und die Empfänger schicken dort Ihre Berichte hin. 
 
+```
+v=DMARC1; p=quarantine; rua=mailto:dmarc@seatable.com; ruf=mailto:dmarc@seatable.com
+```
 
+Zur Analyse dieser Reports kann ich den [DMARC Report Viewer von cry-inc](https://github.com/cry-inc/dmarc-report-viewer) empfehlen. Dieser holt sich eigenständig die Berichte aus einem Postfach ab und stellt diese grafisch übersichtlich dar. Sollte es zu einem Fehler kommen, kann man sich auch den Quelltext des entsprechenden Berichts anzeigen lassen, um diesen weiter zu analyisieren.
 
-## Einrichtung ist wichtig
-spf korrigiert
-email.seatable.com einträge hinzugefügt
-doppelten dkim (von mailcow) entfernt, weil darüber verschicke ich ja nie.
-mta-sts auf aktiv gesetzt.
+Mit diesen Tools sollte man sicherstellen können, dass das technische Setup bestehend aus DNS-Einträgen sauber eingerichtet ist.
 
+## Fortlaufende Überwachung
 
-aus mailcow für seatable.com entfernt:
-v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0nI3UWkHBTcXNbYGM5kLzQFRg2e45dJTBF/yeKRjHkIKNm3pc3AxrsSMLwuQ5vjgtMzr5tmm63926ROqK4YbTRNBFio/jeQ9xTrVNcBQxyqTb1QKWxFzHJhROTR9VxulcEPRIiq7xb054iiApboD5vLpgyk/Mlol7HJzXgkOwWvUoqFToxFxKa3gxKZFcJVMfqQT/XrU+j5Lf4fa14CbC2FiBVJm4yFvX4dDgX4IwhIVK4y9mfTlbEEqZ3V2zeGb7MY5bYFtUl2f8Ar7dgHAEU5EmhqLbv9t5Gd6PNbmECSGy0tCvGQVauSCmeT96e5aAFmHC4WxRIfRXSMyJk3OBQIDAQAB
+### Blacklists
 
-# What is the goal:
-- 99% delivery rate for all our emails
-- early detection, if something goes wrong.
+Jeder hat wahrscheinlich schonmal davon gehört. Die eigene IP-Adresse steht auf einer Blacklist, und deshalb werden die E-Mails vom empfangenden Mailserver nicht angenommen oder verworfen.
+Typischerweise bietet jede Blacklist die Möglichkeit sich wieder von dieser entfernen zu lassen, aber man muss eben auch mitkriegen, dass man auf einer solchen steht.
 
-Our specific setup:
-- alles geht über brevo.
+Die einfachste Möglichkeit ist es die eigene IP-Adresse auf https://mxtoolbox.com/blacklists.aspx einzugeben. Dieser manuelle Check prüft unmittelbar gegen mehr als 50 Blacklisten und liefert eine übersichtliche Tabelle.
 
-## Kontrolle
-https://redsift.com/tools/investigate ist das richtige tool, um sicherzustellen, dass alles stimmt.
-=> wir hatten leider einen spf fehler!
-=> der aktuelle "Hinweis" wird von mir noch optimiert.
+**Screenshot von mxtoolbox**
 
-Kontrolle darüber hinaus:
-email an gmail und outlook.com schicken, source code von perplexity, etc analysieren lassen. => getan.
+Wer es lieber automatisch möchte, dem kann man den Dienst https://blacklistchecker.com/ empfehlen. Dieser bietet auch einen kostenlosen Online-Check, aber auch eine API, die bis zu 50 kostenlose Checks pro Monat erlaubt.
 
-=> CMC-BIMI Zertifikat gekauft
-Common Mark Certificate (CMC) enables BIMI for brands without a registered trademark, improving email deliverability
-and brand recognition by displaying logos in inboxes.
+Der folgenden n8n Workflow prüft z.B. jeden Morgen unsere IP daraufhin, ob Sie auf einer Blacklist steht. 
 
-# Überwachung
-1) Google Postmaster Tools => christophdyllickbrenzinger@gmail.com =>  (keepassX)
-  wie ist domain reputation und spam-rate
-  => welche user soll ich hinzufügen?
-  
-2) Microsoft:
-https://sendersupport.olc.protection.outlook.com/snds/addnetwork (cdb@seatable.io)
-=> 19.11.2025
+**Screenshot von n8n workflow**
 
-3) RUA, RUF reports
-dmarc.seatable.com -> docker container...
+### Whitelists
 
-4) Whitelist
-https://www.dnswl.org/ (kostenlos) geht nicht bei brevo (dedicated email), die machen das schon
-andere wie z.B. https://www.validity.com/everest/sender-certification/ sind alle kostenpflichtig.
+Weit weniger bekannt ist, dass es auch Whitelists gibt. Eine IP-Adresse, die auf diesen Listen steht, sollte vertrauenswürdig sein und somit von den Empfängern eher zugelassen werden.
+Es gibt diverse kostenpflichtige Anbieter wie z.B. https://www.validity.com/everest/sender-certification/, die horrende Summen aufrufen und lediglich versprechen, dass E-Mails dann besser zugestellt werden. Wir haben bisher auf diese kostenpflichtigen Anbieter verzichtet, weil kein messbarer Vorteil ersichtlich ist und dafür die Preise einfach zu hoch sind.
 
-5) Blacklisten überwachen.
-https://mxtoolbox.com/blacklists.aspx (manuell)  mit ip: 172.246.35.50
-https://blacklistchecker.com/check?input=172.246.35.50
-  => cdb@seatable.io -> key_aNRamr9QPOBM7ZKgS7eC4mEXy
-=> n8n workflow: curl https://api.blacklistchecker.com/check/172.246.35.50 -u key_aNRamr9QPOBM7ZKgS7eC4mEXy: | jq
+Mit dnswl.org gibt es jedoch auch einen kostenlosen Dienst. Wenn man bei Brevo eine dedizierte E-Mail hat, ist diese IP-Adresse bereits auf Brevo registriert. Somit muss man hier nicths tun. Wenn man einen eigenen Mailserver betreibt, sollte man sich die Mühe machen, und die eigene IP-Adresse hier hinterlegen. Wieviel es bringt, ist unklar. Aber schaden kann es auf jeden Fall nicht.
 
-# Auf aktuelle sperren überwachen
-=> n8n workflow und notification
+### Testversand
 
-# zum entsperren, wenn man eventl solche messages bekommt
+Brevo liefert bietet für jede versendete E-Mail ein Transaktionslog. Somit liegt es nahe, dass man regelmäßig quasi eine Test-E-Mail verschickt und dann prüft, ob diese auch zugestellt wrden konnte. Wir haben das mit einem weiteren n8n Workflow abgebildet, bei dem wir jeden Tag eine E-Mail an eine @outlook.com Adresse verschicken und dann eine Minute später die erfolgreiche Zustellung überprüfen. Den selbst wenn technisch alles sauber ist und man auch auf keiner Blacklist steht, kann es sein, dass die eigenen E-Mails nicht zugestellt werden.
 
-Reason: 550 5.7.1 Unfortunately, messages from [172.246.35.50] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors. [Name=Protocol Filter Agent][AGT=PFA][MxId=11BCB2B2FC29281C] [SA2PEPF00003AE4.namprd02.prod.outlook.com 2026-01-24T07:00:10.851Z 08DE595980A54C54]
+### Softbounces und Hardbounces überwachen
 
-https://olcsupport.office.com/
-https://sender.office.com/
+Brevo bietet die Möglichkeit sich per Webhook über Softbounces und Hardbounces informieren zu lassen. Diesen Webhook empfangen wir per n8n und informieren den Sender darüber, dass eine E-Mail nicht zugestellt werden konnte. Dies ist zu einem unverzichtbaren Werkzeug für uns geworden, den was gibt es schlimmeres als dass man eine Rechnung oder ein Angebot an einen Kunden schickt, und diese E-Mail einfach nicht im Postfach des Kunden ankommt. 
 
-######
+**Screenshot von Brevo zu Soft- und Hardbounce**
 
-ssl2buy: cdb@seatable.com + Ionas12345#
+### Finetuning: Auswerten der Header von RSPAMD
 
-##########
+...Auslesen von E-Mail Headern von z.B. RSPAMD. Dort kriegt man zusätzlich Informationen, warum man ggf. bei einem Kunden im Spamordner gelandet ist. Dies kann von einer fehlerhaften Kodierung eines Anhangs über zu wenig Text im vergleich zu Grafiken ganz vieles sein und ist eine sehr indeividulle Konfiguraiton des Mailserver-Administors. Das ist dann das aboslute finetuning, aber auch hier hilft die Analyise der E-Mail Header mit Hilfe von KI um Hinweise auf mögliche Fehler zu finden.
 
-ocrmypdf.exceptions.PriorOcrFoundError: page already has text! - aborting (use --force-ocr to force OCR;  see also help for the arguments --skip-text and --redo-ocr
+## Aktives Entsperren
 
+Selbst bei all dem technischen Aufwand, perfekten E-Mails und einer geprüften Empfängerliste kann es passieren, dass man einfach nicht mehr durchkommt. In unserem Fall war es wie gesagt die Blocklist von Microsoft, die uns das Leben schwer gemacht hat. So erhielten wir folgenden Fehlermeldungen zurück:
 
-### noch offen:
-- BIMI Zertifikat einbinden
-- verknüpfte domain bei brevo von email.seatable.io auf email.seatable.com ändern
-- Absender presse@seatable.io und noreply@seatable.io aus brevo entfernen
-- Prüfen, ob ich automatisiert jeden Morgen eine E-Mail an eine @gmail und @outlook.com schicken kann - quasi frühwarnsystem.
+```
+Reason: 550 5.7.1 Unfortunately, messages from [172.246.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors. [Name=Protocol Filter Agent][AGT=PFA][MxId=11BCB2B2FC28272C] [SA3PEPG00002BF1.namprd02.prod.outlook.com 2026-01-24T07:00:10.851Z 07DD451350B34C54]
+```
 
-## Next steps:
-- CDB: Regelmäßige Kontrolle, ob wirklich alles
-- PST/FHE:
-  - Kampagnen nur noch per @seatable.com
-  - Testen von hotmail.com / outlook.com und dann Kampagnen für diese Kunden wiederholen
-  - Auschlüsselung der Zustellbarkeit nach Domain überwachen
-  - Google Postmaster Tools, Microsoft Sender Network und dmarc.seatable.com überwachen
+Zum Entsperren bietet Microsoft zwei verschiedenen Formulare an: 
+- https://olcsupport.office.com/
+- https://sender.office.com/
 
+Die Formulare auszufüllen, ist nicht weiter schwierig und normalerweise erhält man in jedem Fall nach 1-2 Tagen eine automatisch Antwort, dass es keinen Grund gibt, warum die E-Mails nicht zugestellt werden können. Unserer Erfahrung nach ist es notwendig, auf diese E-Mails zu antworten und um erneute Prüfung zu bitten. Irgendwann wird dann diese E-Mail an einen Mitarbeiter weitergeleitet, der sich dann wirklich um das Thema kümmert. 
 
-marketing@seatable.com
-presse@seatable.com
+Dann kann man damit rechnen, dass die IP-Adresse wieder von der Blocklist entfernt wird, wodurch man wieder in den Postfächern von Microsoft E-Mailkonten landet. Der Prozess ist zwar absolut intransparent und mühsam, aber leider nicht zu vermeiden, wenn man erstmal auf dieser Blocklist steht.
 
-mails an sich selbst schicken, dann header auslesen.
-RSPAMD
+## Optional: VMC oder CMC-BIMI Zertifikat
 
+Eine weitere Möglichkeit, um die eigene IP bzw. Marke mit mehr Trust auszustatten, ist ein digitales Zertifikat im Rahmen des BIMI-Standards (Brand Indicator for Message Identification). Hört sich erstmal kompliziert an, ist am Ende aber nichts anderes als ein digitales Zertifikat, welches ausweist, dass man ein Logo bzw. eine Marke bereits mindestens 12 Monate nutzt und man sich entsprechend ausweisen kann.
 
+Aktuell gibt es zwei solcher Zertifikate:
+- CMC (Common Mark Certificate)
+- VMC (Verified Mark Certificate)
 
---------
---------
+CMCs sind günstiger und schneller ausgestellt, da Sie nur den Nachweis über die Logo Nutzung erfordern. Bei VMC muss man zwingend eine Markenanmeldung (z.B. beim europäischen Markenregister) nachweisen. Neben dem zusätzlichen Vertrauen, dass diese Zertifikate mit sich bringen, haben Sie den vorteil, dass in manchen Mailclients, das eigene Logo angezeigt wird.
 
+Wir haben uns dafür entschieden ein CMC bei zu beantragen und die Kosten von xxx € pro Jahr zu investieren. Noch läuft der Beantragungsprozess, somit kann ich aktuell noch nicht über eventuelle Vorteile berichten. Wenn Ihr das lest, könnt ihr mich gerne kontaktieren und ich teile meine bisherigen Erfahrungen.
 
-Erst SPF- und DKIM-Eintrage
-- https://dmarcly.com/tools/spf-record-checker
-- https://dmarcly.com/tools/dkim-record-checker
+**Screenshot**
 
-################
+## 100% Zustellquote ist das Ziel und erfordert konsequente Arbeit
 
-DMARC
-- https://dmarcly.com/tools/dmarc-checker
+hier ncoh eine zusammenfassung.
 
-################
 
-SPF
-v=spf1 -all
- => läuft
-
-########
-
-TLS-RPT
-
-MTA-STS
-https://dmarcly.com/tools/mta-tls-checker
-
-########################
-
-BIMI
-https://dmarcly.com/tools/bimi-record-checker
-https://dmarcadvisor.com/de/bimi-check/?
-
-Konkreter Eintrag
-default._bimi.seatable.com
-v=BIMI1; l=https://seatable.com/bimi.svg; a=;
-
-
-##########
-
-super tool:
-https://redsift.com/tools/investigate
-
-
-https://redsift.com/tools/investigate?utm_source=google-c&utm_campaign=OnDMARC_EMEA&utm_medium=ad&utm_content=Investigate_tool&utm_term=spf%20checker&hstk_creative=667036972942&hstk_campaign=17554707731&hstk_network=googleAds&gad_source=1&gad_campaignid=17554707731&gbraid=0AAAAADPOkYYBMxbXSZaYMQgGVuY3jZFIb&gclid=EAIaIQobChMImbD23vrJkQMVSZODBx2_xwCBEAAYASAAEgKRT_D_BwE
-https://dmarcly.com/tools/mta-tls-checker
-https://www.gov.uk/government/publications/email-security-standards/using-tls-reporting-tls-rpt-in-your-organisation
-
-
-----------------
-----------------
-
-tar --xz -cvf bewirtungsbelege_eigenbelege.tar.xz ./Bewirtungsbelege\ \&\ Eigenbelege/
-
-cd /shared
-seatable.sh python-env /opt/seatable/seatable-server-latest/dtable-web/manage.py import_dtable_folder --workspace-id="51581" --path="/shared/AKTUELL_VERWALTUNG_TRANSAKTIONEN_BELEGE"
-
-+--------+-----------------------------------------+--------------+
-| id     | name                                    | workspace_id |
-+--------+-----------------------------------------+--------------+
-| 233729 | AKTUELL_VERWALTUNG_TRANSAKTIONEN_BELEGE |        51581 |
-
-
-
-discourse + posthog.
-https://share.google/aimode/5aoM7Id1ZU5ZyVJLV
-
-
--------------------------
-
-
-Whitelisten: !!!
-
-=> bringt halt ncihts. die ip von brevo ist bereits bei denen. die von mailcow, nutzen wir ja nicht für den versand!
-
-https://help.brevo.com/hc/de/articles/8847188389650-FAQ-Warum-ist-meine-IP-Adresse-oder-Dom%C3%A4ne-geblocklistet?input_string=spam
-
-172.246.35.50   email.seatable.io
-188.34.205.91   mail.seatable.com  -> DNSWL Id 31758
-
-olcsupport.office.com
-=> 7096225675
-
-
-
-
-  
