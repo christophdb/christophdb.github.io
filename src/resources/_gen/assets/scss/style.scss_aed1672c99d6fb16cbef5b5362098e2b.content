@@ -3,7 +3,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: url("//localhost:1313/fonts/poppins-regular.woff2") format("woff2");
+  src: url("http://localhost:1313/fonts/poppins-regular.woff2") format("woff2");
   /* Adjust path if needed */
   font-display: swap;
   /* Important for performance */ }
@@ -12,7 +12,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
-  src: url("//localhost:1313/fonts/poppins-bold.woff2") format("woff2");
+  src: url("http://localhost:1313/fonts/poppins-bold.woff2") format("woff2");
   /* Adjust path if needed */
   font-display: swap;
   /* Important for performance */ }

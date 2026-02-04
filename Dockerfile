@@ -1,19 +1,32 @@
 # Use the latest debian base image
-FROM debian:bookworm-slim
-
-# Set Versions
-ARG GOLANG_VERSION=1.24.1
-ARG HUGO_VERSION=0.145.0
+FROM debian:trixie-slim
 
 # Update and install necessary packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     git \
     wget \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+    curl \
+    ca-certificates
 
-# Install Go
+########
+# Node
+########
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+
+ARG NPM_VERSION=11.6.3
+
+RUN apt-get update && \
+    apt-get install -y nodejs && \
+    npm install -g npm@${NPM_VERSION}
+
+RUN node -v && npm -v && npx -v
+
+########
+# Go
+########
+ARG GOLANG_VERSION=1.25.4
 RUN wget https://go.dev/dl/go$GOLANG_VERSION.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz && \
     rm go$GOLANG_VERSION.linux-amd64.tar.gz
@@ -23,27 +36,38 @@ ENV GOROOT=/usr/local/go
 ENV GOPATH=/go
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 ENV HUGO_BIND="0.0.0.0" \
-    HUGO_ENV="DEV" \
+    HUGO_ENV="development" \
     HUGO_EDITION="extended"
 
-# Download Hugo
+########
+# Hugo
+########
+
+ARG HUGO_VERSION=0.152.2
 RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz -O hugo.tar.gz && \
     tar -C /usr/local/bin -xzf hugo.tar.gz && \
     rm hugo.tar.gz
 
+# Set the working directory for Hugo projects
+WORKDIR /hugo/src
+
+# Copy code
+COPY . /hugo
+
+RUN git config --global --add safe.directory /hugo
+
 # Clean up
 RUN apt-get remove -y wget && apt-get autoremove -y && apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
 
 # Set hugo in the path
 RUN export PATH=$PATH:/usr/local/go/bin
 
 EXPOSE 1313
 
-# Set the working directory for Hugo projects
-WORKDIR /hugo/src
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-#ENTRYPOINT 
-ENTRYPOINT ["hugo"]
+ENTRYPOINT ["entrypoint.sh"]
 
-# Command to run when the container starts
-#CMD ["hugo", "server", "-D", "-E", "--bind=0.0.0.0"]
+# This starts hugo and tailwind in watch mode
+CMD ["sh", "-c", "ENABLE_PAGEFIND=${ENABLE_PAGEFIND:-0} npm --prefix /hugo/src/themes/hugo-winston-theme run docker:watch"]

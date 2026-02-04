@@ -14,9 +14,21 @@
     {{ end }}
     <div class="intro">
       <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
-      {{ if .Params.image }}
+
+      <!-- new feature image in folder... -->
+      {{ $images := .Resources.ByType "image" }}
+      {{ $featured := $images.GetMatch "feature*" }}
+      {{ if $featured }}
+          <img
+            src="{{ $featured.RelPermalink }}"
+            alt="{{ .Params.seo.title | default .Title }}" />
+
+      <!-- default params image -->
+      {{ else if .Params.image }}
       <img alt="{{.Params.imageAltAttribute | default "Article hero image"}}" src="{{ .Params.image | relURL }}" />
       {{ end }}
+
+
     </div>
     <div class="content">
       {{ .Content }}

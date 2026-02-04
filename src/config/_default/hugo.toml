@@ -1,0 +1,16 @@
+baseURL = 'https://christophdb.github.io'
+title = 'Mein Blog'
+theme = 'hugo-winston-theme'
+
+defaultContentLanguage = 'en'
+
+[languages]
+  [languages.de]
+    languageName = 'Deutsch'
+    weight = 2
+    title = 'Explore, Hack, Optimize, Repeat'
+    
+  [languages.en]
+    languageName = 'English'
+    weight = 1
+    title = 'Explore, Hack, Optimize, Repeat'

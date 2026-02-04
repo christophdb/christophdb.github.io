@@ -41,3 +41,4 @@ go 1.24.1
 - two robots talking with each other, purple background, cartoon style, digital illustration --ar 2:1 
 - Cute robot character, purple background, cartoon style, digital illustration --ar 2:1 
 1000:500px
+

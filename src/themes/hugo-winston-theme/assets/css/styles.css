@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-style: bold;
+    font-weight: 700;
+    src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/fonts/roboto-400.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: bold;
+    font-weight: 700;
+    src: url('/fonts/roboto-700.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto-Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/roboto-mono-400.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto-Mono';
+    font-style: bold;
+    font-weight: 400;
+    src: url('/fonts/roboto-mono-700.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'dtable-font';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/dtable-font.woff2') format('woff2');
+}
+
+* {
+    @apply font-roboto;
+}
+
+.wrapper {
+    @apply max-w-5xl m-auto;
+}
+
+h1 {
+    @apply font-poppins font-bold text-8xl leading-[94px] mb-12;
+}
+
+/* summary */
+.summary {
+    @apply mb-20 leading-7;
+}
+.summary-title {
+    @apply text-5xl font-bold leading-narrow max-w-4xl mt-4;
+}
+.summary-title a {
+    @apply font-poppins;
+}
+.summary-title a:hover {
+    @apply underline;
+}
+.summary-description {
+    @apply leading-normal text-lg my-5 max-w-3xl;
+}
+.summary-date {
+    @apply font-bold;
+}
+.summary-readtime {
+    @apply text-text;
+}
+.view-more {
+    @apply border-2 border-highlight px-3 py-2 rounded-lg text-lg font-bold;
+}
+
+body {
+    @apply p-12;
+}
+
+body.frame {
+    @apply border-[18px] border-highlight min-h-screen;
+}
+
+.dot {
+    @apply text-highlight;
+}
+
+.header {
+    @apply flex flex-row justify-between mb-10;
+}
+
+.header-logo {
+    @apply font-bold uppercase mr-8 text-highlight;
+}
+.header-logo:hover {
+    @apply underline;
+}
+
+.main-menu ul {
+    @apply flex flex-row;
+}
+
+p {
+    @apply text-lg leading-relaxed text-text;
+}
+
+/* content */
+.content p {
+    @apply max-w-3xl mb-5;
+}
+.content h2 {
+    @apply font-bold font-poppins text-3xl leading-snug mt-8 mb-5;
+}
+.content h3 {
+    @apply font-bold font-poppins text-2xl leading-snug mt-8 mb-5;
+}
+.content img {
+    @apply my-10 h-auto max-w-full;
+}
+.content ul {
+    @apply ml-5 mt-3 mb-5 list-disc;
+}
+.content li {
+    @apply ml-5 leading-5 mb-3 pl-2 text-text text-lg;
+}
+
+a {
+    @apply text-highlight;
+}
+.content a {
+    @apply underline;
+}
+
+.intro {
+    @apply mb-14;
+}
+
+.post-tags {
+    @apply mt-5;
+}
+.post-tags a {
+    @apply text-base bg-highlight text-white px-[6px] py-[3px] rounded;
+}
+
+.next-prev-blog-links {
+    @apply mt-12 text-text;
+}
+.next-prev-blog-links .container {
+    @apply flex flex-row justify-between text-sm mt-2;
+}
+
+/* footer */
+.footer {
+    @apply mt-8 pt-10;
+}
+.footer-social {
+    @apply flex flex-row gap-5;
+}
+.social-icon {
+    @apply max-w-6 max-h-6;
+}
+.footer-powered-by {
+    @apply text-gray-500 text-xs mt-5;
+}
+
+
+
+  /* Komplette Table Styling */
+  table {
+    @apply w-full border-collapse border-spacing-0 overflow-x-auto block;
+  }
+
+  thead th {
+    @apply bg-highlight text-white text-lg font-semibold border-b-[12px] border-highlight py-3.5 px-5 text-left;
+  }
+
+  tbody td {
+    @apply text-base text-[#373c44] bg-white border-b border-highlight py-3.5 px-5 text-left font-normal;
+  }
+
+  /* Zeilen-Streifung (odd rows) */
+  tbody tr:nth-child(odd) td,
+  tbody tr:nth-child(odd) th {
+    @apply bg-[#f9fafa];
+  }
+
+  /* Nested Lists in Tables */
+  .content table ul,
+  .content table ol {
+    @apply m-0;
+  }
+
+  .content table ol {
+    @apply list-decimal;
+  }
+  
+  .content table ul li,
+  .content table ol li {
+    @apply text-sm leading-[22px] m-0;
+  }
+
+  /* Custom Marker für ol */
+  .content table ol li::marker {
+    @apply text-xs text-highlight font-bold;
+  }

@@ -9,6 +9,9 @@
   <link rel="icon" href="{{ .Site.BaseURL }}favicon.png">
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  {{ partial "head/css.html" . }}
+
+  <!--
   {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
     {{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
     {{ $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
@@ -20,6 +23,7 @@
     <link rel="stylesheet" href="{{ ($style).RelPermalink }}">
     <link rel="stylesheet" href="{{ ($extended).RelPermalink }}">
   {{- end }}
+  -->
 
   {{ block "meta_tags" . }}
     {{ if .Params.description }}<meta name="description" content="{{ .Params.description }}"/>{{ end }}
@@ -53,6 +57,8 @@
   {{ end }}
 
   {{ partial "extend-head.html" . }}
+
+  
 </head>
 
 {{ $themeStyle := slice "" }}
@@ -84,6 +90,17 @@
   {{ partial "matomo-analytics.html" . }}
   {{ partial "plausible-analytics.html" . }}
   {{ partial "extend-footer.html" . }}
+
+  <!-- alpine js -->
+  {{ $collapse := resources.Get "js/alpineCollapse.js" | fingerprint }}
+  <script src="{{ $collapse.RelPermalink }}" integrity="{{ $collapse.Data.Integrity }}" defer></script>
+
+  {{ $persistPlugin := resources.Get "js/alpinePersist.js" | fingerprint }}
+  <script src="{{ $persistPlugin.RelPermalink }}" integrity="{{ $persistPlugin.Data.Integrity }}" defer></script>
+
+  {{ $alpine := resources.Get "js/alpine.js" | fingerprint }}
+  <script src="{{ $alpine.RelPermalink }}" integrity="{{ $alpine.Data.Integrity }}" defer></script>
+
 
 </body>
 </html>
