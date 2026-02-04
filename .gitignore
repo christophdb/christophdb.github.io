@@ -1,2 +1,21 @@
-/src/public
+src/public/*
 /src/.hugo_build.lock
+
+src/resources/_gen/*
+src/themes/hugo-winston-theme/assets/css/styles.output.css
+src/themes/hugo-winston-theme/static/css/styles.css
+
+**/node_modules/
+**/.DS_Store
+.DS_Store
+
+.vscode/settings.json
+
+# disable search
+.env
+
+# custom configuration to disable languages
+src/config/development/hugo.toml
+
+# kann weg
+/kann_weg_fragezeichen
