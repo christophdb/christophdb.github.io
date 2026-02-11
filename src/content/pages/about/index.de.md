@@ -6,14 +6,12 @@ image: images/about.jpg
 
 ## Christoph Dyllick-Brenzinger
 
-Deutsch
+Ich bin Wirtschaftsabsolvent der Universität Mannheim und begann meine Karriere als Berater bei Detecon (der Technologie-Tochter der Deutschen Telekom). Nach zwei Beförderungen in vier Jahren wurde ich dort zum jüngsten Senior Consultant aller Zeiten. Die Arbeit mit großen Unternehmen entfachte meine Leidenschaft für Prozessautomatisierung und IT – ich blühe an der Schnittstelle zwischen Entwicklern und Management auf.
 
-I’m a Mannheim Uni economics grad who started as a consultant at Detecon (Deutsche Telekom’s tech arm). Promoted twice in four years, I became their youngest-ever Senior Consultant. Working with major corporations sparked my passion for process automation and IT—I thrive at the intersection of developers and management.
+2014 gründete ich gemeinsam mit meinem Bruder Ralf drei Unternehmen. Heute sind wir die weltweiten Distributoren von [Seafile](https://seafile.com) (Sync-and-Share) und [SeaTable](https://seatable.com) (No-Code-Plattform). Als Autodidakt in der IT programmiere ich in PHP, Python, React und Go und setze auf schlanke Deployments mit Docker, Kubernetes und n8n für Automatisierungen.
 
-In 2014, I co-founded three companies with my brother Ralf. Today, we’re the global distributors of [Seafile](https://seafile.com) (sync-and-share) and [SeaTable](https://seatable.com) (no-code platform). Self-taught in IT, I code in PHP, Python, React, and Go, and I’m all about lean deployments with Docker, Kubernetes, and n8n for automations.
+Dieser Blog ist mein Raum, um Erkenntnisse, Tricks und Entdeckungen rund um Automatisierung, Optimierung und Linux zu teilen. Tauche ein – vielleicht findest du hier die Inspiration für deine nächste große Herausforderung.
 
-This blog is my space to share insights, hacks, and discoveries in automation, optimization, and Linux. Dive in—you might just find the spark for your next big challenge.
+## Wissen teilen
 
-## Sharing knowledge
-
-I’m passionate about sharing what I’ve learned and inspiring others. That’s why I’m excited to step into the role of a speaker — whether at conferences, meetups, or workshops. Let’s connect, collaborate, and make an impact together!
+Ich brenne dafür, mein Wissen weiterzugeben und andere zu inspirieren. Deshalb freue ich mich darauf, in die Rolle eines Speakers zu schlüpfen – ob auf Konferenzen, Meetups oder Workshops. Lass uns vernetzen, zusammenarbeiten und gemeinsam etwas bewegen!

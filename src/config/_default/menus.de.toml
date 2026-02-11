@@ -1,0 +1,25 @@
+
+[[main]]
+name = "Über mich"
+pageRef = "pages/about"
+weight = 1
+
+[[main]]
+name = "Vorträge"
+pageRef = "pages/speaking"
+weight = 2
+
+[[main]]
+name = "Blog"
+pageRef = "posts"
+weight = 3
+
+[[main]]
+name = "Schlagwörter"
+pageRef = "pages/tags"
+weight = 4
+
+[[main]]
+name = "Kontakt"
+pageRef = "pages/contact"
+weight = 5

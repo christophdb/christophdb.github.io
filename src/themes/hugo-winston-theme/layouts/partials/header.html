@@ -9,14 +9,14 @@
         <ul class="flex flex-row gap-7">
           {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
-          {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
-          {{ $active = or $active (eq (.URL | relLangURL) ($currentPage.RelPermalink | relLangURL)) }}
-          <li class="menu-item-{{ .Name | lower }} {{ if $active }}active{{ end }}">
-            <a href="{{.URL}}" class="hover:underline">
-              {{ .Pre }}
-              <span>{{ .Name }}</span>
-            </a>
-          </li>
+            {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            {{ $active = or $active (eq (.URL | relLangURL) ($currentPage.RelPermalink | relLangURL)) }}
+            <li class="menu-item-{{ .Name | lower }} {{ if $active }}active{{ end }}">
+              <a href="{{ .URL }}" class="hover:underline">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+              </a>
+            </li>
           {{end}}
         </ul>
       
