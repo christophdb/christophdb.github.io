@@ -2,7 +2,7 @@
 module.exports = {
     content: ['./content/**/*.{html,js}', './layouts/*.html', './layouts/**/*.{html, js}'],
     theme: {
-        fontSize: {
+        /*fontSize: {
             xs: ['12px', '16px'],
             sm: ['14px', '20px'],
             base: ['16px', '19.5px'],
@@ -14,7 +14,7 @@ module.exports = {
             '5xl': ['56px', '80px'],
             '8xl': ['88px', '106px'],
             '9xl': ['108px', '120px'],
-        },
+        },*/
         extend: {
             lineHeight: {
                 narrow: '1.1em',

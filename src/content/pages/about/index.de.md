@@ -6,7 +6,7 @@ image: images/about.jpg
 
 ## Christoph Dyllick-Brenzinger
 
-DEUTSCH
+Deutsch
 
 I’m a Mannheim Uni economics grad who started as a consultant at Detecon (Deutsche Telekom’s tech arm). Promoted twice in four years, I became their youngest-ever Senior Consultant. Working with major corporations sparked my passion for process automation and IT—I thrive at the intersection of developers and management.
 

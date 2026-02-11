@@ -54,15 +54,17 @@
 }
 
 h1 {
-    @apply font-poppins font-bold text-8xl leading-[94px] mb-12;
+    @apply font-poppins font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-narrow mb-12;
 }
+
+
 
 /* summary */
 .summary {
     @apply mb-20 leading-7;
 }
 .summary-title {
-    @apply text-5xl font-bold leading-narrow max-w-4xl mt-4;
+    @apply text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mt-4 max-w-3xl;
 }
 .summary-title a {
     @apply font-poppins;
@@ -111,7 +113,7 @@ body.frame {
 }
 
 p {
-    @apply text-lg leading-relaxed text-text;
+    @apply text-lg leading-relaxed text-text my-4;
 }
 
 /* content */
@@ -141,9 +143,16 @@ a {
     @apply underline;
 }
 
+/* Intro Page */
 .intro {
     @apply mb-14;
 }
+/* intro page */
+.intro-content p {
+    @apply text-2xl max-w-4xl leading-8;
+}
+
+
 
 .post-tags {
     @apply mt-5;

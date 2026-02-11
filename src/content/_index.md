@@ -14,4 +14,4 @@ sparks your curiosity or solves your next big challenge.
 
 <div id="search"></div>
 
-<hr class="three-dots-hr">
+{{< three-dots >}}

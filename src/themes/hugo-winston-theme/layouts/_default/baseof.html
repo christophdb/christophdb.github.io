@@ -66,6 +66,13 @@
 
 <body class='page{{ delimit $themeStyle " " }} {{ block "body_classes" . }}{{ end }}'>
   {{ partial "menu-main-mobile.html" . }}
+
+  {{ if hugo.IsProduction }}
+  {{ else }}
+    {{ partial "tw-size-indicator.html" . }}
+  {{ end }}
+
+
   <div id="wrapper" class="wrapper">
     {{ partial "header.html" . }}
     {{ block "main" . }}
