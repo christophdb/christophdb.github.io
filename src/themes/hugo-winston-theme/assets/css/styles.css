@@ -57,7 +57,6 @@ h1 {
     @apply font-poppins font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-narrow mb-12;
 }
 
-
 /* pagination */
 ul.pagination {
   @apply flex justify-center list-none my-5 p-0;
