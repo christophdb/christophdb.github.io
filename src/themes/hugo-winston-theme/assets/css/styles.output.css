@@ -906,6 +906,97 @@ h1 {
   }
 }
 
+/* pagination */
+
+ul.pagination {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0px;
+}
+
+ul.pagination li {
+  list-style-type: none;
+  border-width: 2px;
+  border-right-width: 0px;
+  --tw-border-opacity: 1;
+  border-color: rgb(123 22 255 / var(--tw-border-opacity, 1));
+  text-align: center;
+  vertical-align: middle;
+  text-decoration-line: none;
+}
+
+ul.pagination li:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(123 22 255 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 22 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+ul.pagination li:hover a {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+ul.pagination li.pagination-item-current {
+  --tw-border-opacity: 1;
+  border-color: rgb(123 22 255 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 22 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+ul.pagination li.pagination-item-current a {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+ul.pagination li a {
+  display: block;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  --tw-text-opacity: 1;
+  color: rgb(123 22 255 / var(--tw-text-opacity, 1));
+  text-decoration-line: none;
+}
+
+ul.pagination li:last-of-type {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-right-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(123 22 255 / var(--tw-border-opacity, 1));
+}
+
+ul.pagination li:last-of-type:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(123 22 255 / var(--tw-border-opacity, 1));
+}
+
+ul.pagination li:last-of-type.active {
+  --tw-border-opacity: 1;
+  border-color: rgb(123 22 255 / var(--tw-border-opacity, 1));
+}
+
+ul.pagination li:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+ul.pagination li svg {
+  margin-bottom: -0.125rem;
+  width: 0.5rem;
+  vertical-align: middle;
+  line-height: 10px;
+}
+
 /* summary */
 
 .summary {

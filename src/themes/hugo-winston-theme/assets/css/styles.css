@@ -58,6 +58,56 @@ h1 {
 }
 
 
+/* pagination */
+ul.pagination {
+  @apply flex justify-center list-none my-5 p-0;
+}
+
+ul.pagination li {
+  @apply list-none no-underline border-2 border-r-0 border-highlight text-center align-middle;
+}
+
+ul.pagination li:hover {
+  @apply border-highlight bg-highlight text-white;
+}
+
+ul.pagination li:hover a {
+  @apply text-white;
+}
+
+ul.pagination li.pagination-item-current {
+  @apply border-highlight bg-highlight text-white;
+}
+
+ul.pagination li.pagination-item-current a {
+  @apply text-white;
+}
+
+ul.pagination li a {
+  @apply block px-[13px] py-[9px] text-highlight no-underline;
+}
+
+ul.pagination li:last-of-type {
+  @apply border-r-2 border-highlight rounded-tr-[3px] rounded-br-[3px];
+}
+
+ul.pagination li:last-of-type:hover {
+  @apply border-highlight;
+}
+
+ul.pagination li:last-of-type.active {
+  @apply border-highlight;
+}
+
+ul.pagination li:first-of-type {
+  @apply rounded-tl-[3px] rounded-bl-[3px];
+}
+
+ul.pagination li svg {
+  @apply w-2 leading-[10px] -mb-0.5 align-middle;
+}
+
+
 
 /* summary */
 .summary {

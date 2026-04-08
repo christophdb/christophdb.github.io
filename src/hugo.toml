@@ -54,29 +54,3 @@ enableRobotsTXT = true
       unsafe = true
       xhtml = false
 
-[menu]
-  [[menu.main]]
-    name = "About"
-    identifier = "about"
-    weight = 1
-    url = "/About/"
-  [[menu.main]]
-    name = "Speaking"
-    identifier = "speaking"
-    weight = 2
-    url = "/speaking/"
-  [[menu.main]]
-    name = "Blog"
-    identifier = "blog"
-    weight = 3
-    url = "/posts/"
-  [[menu.main]]
-    name = "Tags"
-    identifier = "tags"
-    weight = 4
-    url = "/tags/"
-  [[menu.main]]
-    name = "Contact"
-    identifier = "contact"
-    weight = 5
-    url = "/contact/"

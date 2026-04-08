@@ -1,6 +1,6 @@
 ---
 title: "Caddy Labels Docker"
-date: 2025-09-10
+date: 2020-09-10
 draft: true
 nosearch: true
 #image: images/robots2.jpg

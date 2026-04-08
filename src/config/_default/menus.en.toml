@@ -1,0 +1,25 @@
+
+[[main]]
+name = "About"
+pageRef = "pages/about"
+weight = 1
+
+[[main]]
+name = "Speaking"
+pageRef = "pages/speaking"
+weight = 2
+
+[[main]]
+name = "Blog"
+pageRef = "posts"
+weight = 3
+
+[[main]]
+name = "Tags"
+pageRef = "pages/tags"
+weight = 4
+
+[[main]]
+name = "Contact"
+pageRef = "pages/contact"
+weight = 5
